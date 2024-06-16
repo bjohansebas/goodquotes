@@ -1,0 +1,72 @@
+---
+import "@fontsource/geist-sans/400.css";
+import "@fontsource/geist-sans/600.css";
+import "@fontsource/geist-sans/500.css";
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+}
+
+const { title, lang, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang ?? "en-US"}>
+  <head>
+    <title>{title}</title>
+
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+
+    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --background: hsl(199 47.449999999999996% 4%);
+    --foreground: hsl(199 7.3% 97.5%);
+    --muted: hsl(199 36.5% 15%);
+    --muted-foreground: hsl(199 7.3% 55%);
+    --popover: hsl(199 50.4% 6.5%);
+    --popover-foreground: hsl(199 7.3% 97.5%);
+    --card: hsl(199 50.4% 6.5%);
+    --card-foreground: hsl(199 7.3% 97.5%);
+    --border: hsl(199 36.5% 15%);
+    --input: hsl(199 36.5% 15%);
+    --primary: hsl(199 73% 50%);
+    --primary-foreground: hsl(199 7.3% 5%);
+    --secondary: hsl(199 36.5% 15%);
+    --secondary-foreground: hsl(199 7.3% 97.5%);
+    --accent: hsl(199 36.5% 15%);
+    --accent-foreground: hsl(199 7.3% 97.5%);
+    --destructive: hsl(0 62.8% 30.6%);
+    --destructive-foreground: hsl(199 7.3% 97.5%);
+    --ring: hsl(199 73% 50%);
+    --radius: 0.75rem;
+  }
+
+  html {
+    font-family: "Geist Sans", system-ui, sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+</style>
