@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "check": "oxlint --fix . && prettier --write .",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -15,5 +16,11 @@
     "astro": "4.10.2",
     "tailwindcss": "3.4.4",
     "typescript": "5.4.5"
+  },
+  "devDependencies": {
+    "oxlint": "0.4.2",
+    "prettier": "3.3.2",
+    "prettier-plugin-astro": "0.14.0",
+    "prettier-plugin-tailwindcss": "0.6.1"
   }
 }
