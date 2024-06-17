@@ -9,6 +9,13 @@ export const quotes: Quote[] = [
   },
   {
     translations: {
+      en: "Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.",
+      es: "Dos cosas son infinitas: la estupidez humana y el universo; y no estoy seguro de lo segundo",
+    },
+    author: "Albert Einstein ",
+  },
+  {
+    translations: {
       es: "No busques que los eventos ocurran como tú quieres, sino desea que ocurran como ocurren, y encontrarás paz.",
     },
     author: "Epicteto",
@@ -18,6 +25,33 @@ export const quotes: Quote[] = [
       es: "El que vive en armonía consigo mismo vive en armonía con el universo.",
     },
     author: "Marco Aurelio",
+  },
+  {
+    translations: {
+      es: "Sé tú mismo, todos los demás ya están ocupados.",
+      en: "Be yourself; everyone else is already taken.",
+    },
+    author: "Oscar Wilde",
+  },
+  {
+    translations: {
+      en: "To live is the rarest thing in the world. Most people exist, that is all.",
+      es: "Lo menos frecuente en este mundo es vivir. La mayoría de la gente existe, eso es todo",
+    },
+    author: "Oscar Wilde",
+  },
+  {
+    translations: {
+      es: {
+        quote: "La verdad rara vez es pura y nunca simple",
+        reference: "La importancia de llamarse Ernesto",
+      },
+      en: {
+        quote: "The truth is rarely pure and never simple",
+        reference: "The Importance of Being Earnest",
+      },
+    },
+    author: "Oscar Wilde",
   },
   {
     translations: {
