@@ -1,0 +1,38 @@
+---
+import type { Quote as IQuote } from "@/types/quote";
+import QuoteIcon from "./icons/QuoteIcon.astro";
+
+interface Props extends IQuote {
+  class?: string;
+}
+
+const { translations, author, reference, class: className } = Astro.props;
+---
+
+<blockquote class={className}>
+  <div class="mb-3 flex items-center gap-x-4">
+    <QuoteIcon class="size-9 text-gray-300" />
+    <div class="w-full border border-gray-400"></div>
+  </div>
+  <p class="text-balance text-center text-2xl font-medium italic">
+    "{translations.es}"
+  </p>
+  <footer
+    class="mt-6 flex items-center justify-center space-x-3 rtl:space-x-reverse"
+  >
+    <div
+      class="flex items-center divide-x-2 divide-gray-500 rtl:divide-x-reverse dark:divide-gray-700"
+    >
+      <cite class="pe-3 font-medium text-gray-900 dark:text-white"
+        >{author}</cite
+      >
+      <cite class="ps-3 text-sm text-gray-500 dark:text-gray-400"
+        >{reference != null ? `${reference}` : ""}</cite
+      >
+    </div>
+  </footer>
+  <div class="flex items-center gap-x-4">
+    <div class="w-full border border-gray-400"></div>
+    <QuoteIcon class="size-9 text-gray-300" />
+  </div>
+</blockquote>
