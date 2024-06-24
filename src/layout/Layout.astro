@@ -2,6 +2,7 @@
 import "@fontsource/geist-sans/400.css";
 import "@fontsource/geist-sans/600.css";
 import "@fontsource/geist-sans/500.css";
+import { getLangFromUrl } from "@/i18n/utils";
 
 interface Props {
   title: string;
@@ -9,22 +10,39 @@ interface Props {
   lang?: string;
 }
 
-const { title, lang, description } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const url = Astro.url.origin;
+
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang={lang ?? "en-US"}>
+<html lang={lang}>
   <head>
     <title>{title}</title>
 
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+
     <meta name="viewport" content="width=device-width" />
     <meta name="robots" content="index, follow" />
     <meta name="googlebot" content="index, follow" />
 
-    <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <meta property="og:url" content={url} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content={url.split("//")[1] ?? ""} />
+    <meta property="twitter:url" content={url} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="" />
   </head>
   <body>
     <slot />
