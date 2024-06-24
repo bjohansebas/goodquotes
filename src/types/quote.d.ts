@@ -1,15 +1,28 @@
 export interface Quote {
   author?: string;
   translations: Languages;
-  reference?: string;
+  tags?: Tags[] | string[];
 }
 
-interface Languages {
-  es?: string | Translations;
-  en?: string | Translations;
+export interface Languages {
+  es?: Translations;
+  en: Translations;
 }
 
-interface Translations {
+export type Translations = {
   quote: string;
-  reference: string;
-}
+  reference?: string;
+};
+
+export type Tags =
+  | "funny"
+  | "love"
+  | "life"
+  | "inspirational"
+  | "philosophy"
+  | "death"
+  | "spirituality"
+  | "religion"
+  | "knowledge"
+  | "science"
+  | "religion";

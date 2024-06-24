@@ -1,12 +1,16 @@
 ---
 import type { Quote as IQuote } from "@/types/quote";
 import QuoteIcon from "./icons/QuoteIcon.astro";
+import { getLangFromUrl, useTranslationsQuotes } from "@/i18n/utils";
 
 interface Props extends IQuote {
   class?: string;
 }
+const { translations, author, class: className } = Astro.props;
 
-const { translations, author, reference, class: className } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+
+const { quote, reference } = useTranslationsQuotes(translations, lang);
 ---
 
 <blockquote class={className}>
@@ -14,8 +18,8 @@ const { translations, author, reference, class: className } = Astro.props;
     <QuoteIcon class="size-9 text-gray-300" />
     <div class="w-full border border-gray-400"></div>
   </div>
-  <p class="text-balance text-center text-2xl font-medium italic">
-    "{translations.es}"
+  <p class="text-pretty text-center text-2xl font-medium italic">
+    "{quote}"
   </p>
   <footer
     class="mt-6 flex items-center justify-center space-x-3 rtl:space-x-reverse"

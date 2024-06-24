@@ -1,15 +1,15 @@
 ---
+export const prerender = false;
+
 import Layout from "@layout/Layout.astro";
 import { randomQuote } from "@lib/quotes";
-import Quote from "@ui/Quote.astro";
+import CardQuote from "@ui/CardQuote.astro";
 
 const quote = randomQuote();
 ---
 
 <Layout title="Quotes" description="">
   <header class="flex h-[70svh] items-center justify-center">
-    <Quote {...quote} class="max-w-3xl">{quote}</Quote>
+    <CardQuote {...quote} mainCard>{quote}</CardQuote>
   </header>
 </Layout>
-
-<script is:inline></script>
