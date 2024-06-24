@@ -1,0 +1,12 @@
+---
+import type { Quote as IQuote } from "@/types/quote";
+import MainQuote from "./MainQuote.astro";
+
+interface Props extends IQuote {
+  mainCard?: boolean;
+}
+
+const { mainCard, ...quote } = Astro.props;
+---
+
+{mainCard === true ? <MainQuote {...quote} /> : <div />}

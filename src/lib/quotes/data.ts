@@ -111,4 +111,13 @@ export const quotes: Quote[] = [
     },
     author: "René Descartes",
   },
+  {
+    translations: {
+      en: {
+        quote:
+          "You know you're in love when you can't fall asleep because reality is finally better than your dreams.",
+      },
+    },
+    author: "Dr. Seuss",
+  },
 ];

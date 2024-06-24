@@ -1,15 +1,20 @@
 ---
 export const prerender = false;
 
+import { getLangFromUrl } from "@/i18n/utils";
 import Layout from "@layout/Layout.astro";
 import { randomQuote } from "@lib/quotes";
-import CardQuote from "@ui/CardQuote.astro";
+import MainQuote from "@ui/quotes/MainQuote.astro";
 
-const quote = randomQuote();
+const lang = getLangFromUrl(Astro.url);
+
+const quote = randomQuote(lang);
 ---
 
-<Layout title="Quotes" description="">
-  <header class="flex h-[70svh] items-center justify-center">
-    <CardQuote {...quote} mainCard>{quote}</CardQuote>
+<Layout title="Good Quotes" description="">
+  <header class="flex min-h-[70svh] items-center justify-center">
+    <div class="max-w-3xl rounded-xl border bg-card px-10 py-6">
+      <MainQuote {...quote}>{quote}</MainQuote>
+    </div>
   </header>
 </Layout>
